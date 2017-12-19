@@ -151,35 +151,31 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-关闭Tomcat报错The web application [ROOT] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak." class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/19/hello-world/">Hello World</a>
+      <a class="article-title" href="/2016/12/15/关闭Tomcat报错The web application [ROOT] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak./">关闭Tomcat报错The web application [ROOT] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak.</a>
     </h1>
   
 
         
-        <a href="/2017/12/19/hello-world/" class="archive-article-date">
-  	<time datetime="2017-12-18T17:09:14.892Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-19</time>
+        <a href="/2016/12/15/关闭Tomcat报错The web application [ROOT] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak./" class="archive-article-date">
+  	<time datetime="2016-12-15T11:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>今天在写项目的时候发现，在关闭服务器后Tomcat抛出如下异常：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&quot;C:\Program Files\Apache Software Foundation\Tomcat 8.0\bin\catalina.bat&quot; stop</span><br><span class="line">Using CATALINA_BASE:   &quot;C:\Users\Hoictas\.IntelliJIdea15\system\tomcat\Tomcat_8_0_33_StudentInforMS&quot;</span><br><span class="line">Using CATALINA_HOME:   &quot;C:\Program Files\Apache Software Foundation\Tomcat 8.0&quot;</span><br><span class="line">Using CATALINA_TMPDIR: &quot;C:\Program Files\Apache Software Foundation\Tomcat 8.0\temp&quot;</span><br><span class="line">Using JRE_HOME:        &quot;C:\Program Files\Java\jdk1.8.0_73&quot;</span><br><span class="line">Using CLASSPATH:       &quot;C:\Program Files\Apache Software Foundation\Tomcat 8.0\bin\bootstrap.jar;C:\Program Files\Apache Software Foundation\Tomcat 8.0\bin\tomcat-juli.jar&quot;</span><br><span class="line">16-Dec-2016 14:44:48.137 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.</span><br><span class="line">16-Dec-2016 14:44:48.139 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler [&quot;http-nio-8888&quot;]</span><br><span class="line">16-Dec-2016 14:44:48.197 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler [&quot;ajp-nio-8009&quot;]</span><br><span class="line">16-Dec-2016 14:44:48.249 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service Catalina</span><br><span class="line">16-Dec-2016 14:44:48.325 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [ROOT] registered the JDBC driver [com.mysql.jdbc.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.</span><br><span class="line">16-Dec-2016 14:44:48.333 WARNING [localhost-startStop-2] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [ROOT] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:</span><br><span class="line"> java.lang.Object.wait(Native Method)</span><br><span class="line"> java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:143)</span><br><span class="line"> com.mysql.jdbc.AbandonedConnectionCleanupThread.run(AbandonedConnectionCleanupThread.java:40)</span><br><span class="line">16-Dec-2016 14:44:48.375 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler [&quot;http-nio-8888&quot;]</span><br><span class="line">16-Dec-2016 14:44:48.385 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler [&quot;ajp-nio-8009&quot;]</span><br><span class="line">16-Dec-2016 14:44:48.466 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler [&quot;http-nio-8888&quot;]</span><br><span class="line">16-Dec-2016 14:44:48.469 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler [&quot;ajp-nio-8009&quot;]</span><br><span class="line">Disconnected from server</span><br></pre></td></tr></table></figure>
+<p>后来发现是因为我把连接mysql的mysql-connector-java-5.1.26-bin.jar放到tomcat的lib下，同时还依赖了另一个jar包而引起的问题</p>
+<p>解决办法:</p>
+<p>只要将tomcat的lib下这个mysql-connector-java-5.1.26-bin.jar包删掉就可以了。</p>
 
       
 
@@ -189,10 +185,25 @@
       
       
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Hexo//" class="article-tag-list-link color5">Hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Hexo/IntelliJ-IDEA//" class="article-tag-list-link color4">IntelliJ IDEA</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/19/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/12/15/关闭Tomcat报错The web application [ROOT] appears to have started a thread named [Abandoned connection cleanup thread] but has failed to stop it. This is very likely to create a memory leak./">展开全文 >></a>
         </p>
       
 
@@ -222,19 +233,718 @@
 
 
   
-    <article id="post-new" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Myeclipse总结及自定义黑色主题的配置" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/28/new/">Linux常用命令手册</a>
+      <a class="article-title" href="/2016/12/14/Myeclipse总结及自定义黑色主题的配置/">Myeclipse总结及自定义黑色主题的配置</a>
     </h1>
   
 
         
-        <a href="/2016/02/28/new/" class="archive-article-date">
+        <a href="/2016/12/14/Myeclipse总结及自定义黑色主题的配置/" class="archive-article-date">
+  	<time datetime="2016-12-13T19:27:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2><a name="t0"></a>前言</h2>
+
+<p>笔者,根据自己的使用经验以及在学习过程中从网上收集到的其他人的使用经验，将感觉有用的信息总结了一下。实现正真意义上的打造专属于<strong>自己</strong>的<strong>Myeclipse</strong>。（黑色主题教程适用于2014版的Myeclispe，而之后的Myeclipse2015等版本都内置黑色主题）</p>
+<h3 id="主题包的使用及下载"><a href="#主题包的使用及下载" class="headerlink" title="主题包的使用及下载"></a><strong>主题包的使用及下载</strong></h3><p><a href="http://download.csdn.net/detail/qq_23703157/9375111" title="主题包的下载地址" target="_blank" rel="noopener">主题包下载</a>。</p>
+<p>将主题包jar放到Eclipse/Myeclipse安装目录的dropins子目录下。重启，在Preference-&gt;General-&gt;Apperance中，选择主题为Dark Juno。</p>
+<p><img src="http://i.imgur.com/nb3y9E3.png" alt=""></p>
+<p><strong>效果如下：</strong> </p>
+<p><img src="http://i.imgur.com/MDoJKRI.png" alt=""></p>
+<p><strong>但在Myeclipse中可能会将jsp的语法验证器关闭(就是如果jsp中写出的语法错误，Myeclipse不会报错。)。<br>这样会在编写代码时很费力，所以如果出现此情况修改方式如下：<br>window – Pereferences – MyEclipse – validation  中的 JSP View Validator 和 JSP Content Validation 的 Manual 和 build 都勾上。</strong></p>
+<h3 id="Eclipse-Myeclipse设置本地Javadoc-API路径"><a href="#Eclipse-Myeclipse设置本地Javadoc-API路径" class="headerlink" title="Eclipse/Myeclipse设置本地Javadoc API路径"></a><strong>Eclipse/Myeclipse设置本地Javadoc API路径</strong></h3><p><img src="http://i.imgur.com/XKoZO5P.jpg" alt=""></p>
+<p><strong>功能演示:</strong></p>
+<p><img src="http://i.imgur.com/8yNMxee.jpg" alt=""></p>
+<p>将鼠标放置左边右下角浏览器图标<img src="http://i.imgur.com/SKFSEbs.png" alt="">会显示<img src="http://i.imgur.com/XxrDttb.jpg" alt="">点击就会出现<img src="http://i.imgur.com/a0zgQPf.png" alt=""></p>
+<h3 id="怎样增强MyEclipse的代码自动提示功能"><a href="#怎样增强MyEclipse的代码自动提示功能" class="headerlink" title="怎样增强MyEclipse的代码自动提示功能:"></a><strong>怎样增强MyEclipse的代码自动提示功能:</strong></h3><p>一般在Eclipse ，MyEclipse代码里面，打个foreach，switch等 这些，是无法得到代码提示的（不信自己试试），其他的就更不用说了，而在Microsoft Visual Studio 里面是得到非常友好的代码提示的。实际上，Eclipse ，MyEclipse代码里面的代码提示功能默认的一般 是点“.”，一般是有了点“.”，才会有代码提示。原理：“Auto Activation triggers for java”这个选项就是指触发代码提示的的选项，把“.” 改成“.abcdefghijklmnopqrstuvwxyz(,”的意思，就是指遇到26个字母和.，（这些符号就触发代码提 示功能了。（具体后面有说，放心）增强Eclipse ，MyEclipse 的代码提示功能，具体怎么样来配置？</p>
+<p>打开Myeclipse，然后windows –&gt; perferences </p>
+<p><img src="http://i.imgur.com/RQnsffj.jpg" alt=""></p>
+<p>选择“java”，展开，“Editor”，选择“Content Assist”</p>
+<p><img src="http://i.imgur.com/ajdyCcR.jpg" alt=""></p>
+<p><img src="http://i.imgur.com/Xrxi4xl.jpg" alt=""></p>
+<p><img src="http://i.imgur.com/Kk61vVZ.jpg" alt=""></p>
+<p><img src="http://i.imgur.com/Zyvku6y.jpg" alt=""></p>
+<p><img src="http://i.imgur.com/5UTbdw9.jpg" alt=""></p>
+<p><img src="http://i.imgur.com/Uv6fMrd.jpg" alt=""></p>
+<p><img src="http://i.imgur.com/g7n87Ej.jpg" alt=""></p>
+<p><img src="http://i.imgur.com/TYZvrRl.jpg" alt=""></p>
+<p><img src="http://i.imgur.com/OmRO53C.jpg" alt=""></p>
+<p><img src="http://i.imgur.com/bBtIJ60.jpg" alt=""></p>
+<p><img src="http://i.imgur.com/dLQX38m.jpg" alt=""></p>
+<p><img src="http://i.imgur.com/wAkHxNZ.jpg" alt=""></p>
+<h3 id="MyEclipse中设置JSP文本颜色"><a href="#MyEclipse中设置JSP文本颜色" class="headerlink" title="MyEclipse中设置JSP文本颜色"></a><strong>MyEclipse中设置JSP文本颜色</strong></h3><p> MyEclipse背景设置成黑色的之后，新建JSP文件后，那句文本信息 This is my JSP page.就会看不到了，因为这段字也是黑色，就算是在首选项中设置JSP的各种style，都无济于事，这个时候就应该去设置html的style，当你把html的文本设成别的颜色后，JSP这边自动就变了。详细步骤如下：</p>
+<p>1、window-preference-myeclipse-files and editors-JSP-JSP Styles就可以设置各项颜色，但是scripting elements颜色不能设置，设置完成后类似This is my JSP page的文本还是黑色。</p>
+<p>2、window-preference-myeclipse-files and editors-HTML-HTML Styles就可以设置html的各项颜色，把是黑色的都改成别的颜色，这个时候回到JSP页面，JSP的文本颜色也会改变，就可以在黑色背景下看到了。找到JSP或者HTML设置颜色路径的快捷方法，新建一个HTML或JSP，在工作区右键-preference就可以直接进入到相应的设置区。</p>
+<h3 id="快捷键A篇"><a href="#快捷键A篇" class="headerlink" title="快捷键A篇  "></a><strong>快捷键A篇  </strong></h3><h4 id="myeclipse快捷键"><a href="#myeclipse快捷键" class="headerlink" title="myeclipse快捷键"></a><strong>myeclipse快捷键</strong></h4><ul>
+<li>存盘 Ctrl+s(肯定知道)</li>
+<li>注释代码 Ctrl+/</li>
+<li>取消注释 Ctrl+(Eclipse3已经都合并到Ctrl+/了)</li>
+<li>代码辅助 Alt+/</li>
+<li>快速修复 Ctrl+1</li>
+<li>代码格式化 Ctrl+Shift+f</li>
+<li>整理导入 Ctrl+Shift+o</li>
+<li>切换窗口 Ctrl+f6 &lt;可改为ctrl+tab方便&gt;</li>
+<li>ctrl+shift+M 导入未引用的包</li>
+<li>ctrl+w 关闭单个窗口</li>
+<li>F3 跳转到类、变量的声明</li>
+<li>F11 运行上次程序</li>
+<li>Ctrl + F11 调试上次程序</li>
+<li>Alt + 回下一个编辑点</li>
+<li>ctrl+shift+T 查找工程中的类</li>
+</ul>
+<h4 id="最经典的快捷键"><a href="#最经典的快捷键" class="headerlink" title="最经典的快捷键"></a><strong>最经典的快捷键</strong></h4><ul>
+<li>Ctrl+1 快速修复(最经典的快捷键,就不用多说了)</li>
+<li>Ctrl+D: 删除当前行</li>
+<li>Ctrl+Alt+↓ 复制当前行到下一行(复制增加)</li>
+<li>Ctrl+Alt+↑ 复制当前行到上一行(复制增加)</li>
+<li>Alt+↓ 当前行和下面一行交互位置(特别实用,可以省去先剪切,再粘贴了)</li>
+<li>Alt+↑ 当前行和上面一行交互位置(同上)</li>
+<li>Alt+← 前一个编辑的页面</li>
+<li>Alt+→ 下一个编辑的页面(当然是针对上面那条来说了)</li>
+<li>Alt+Enter 显示当前选择资源(工程,or 文件 or文件)的属性</li>
+<li>Shift+Enter 在当前行的下一行插入空行(这时鼠标可以在当前行的任一位置,不一定是最后)</li>
+<li>Shift+Ctrl+Enter 在当前行插入空行(原理同上条)</li>
+<li>Ctrl+Q 定位到最后编辑的地方</li>
+<li>Ctrl+L 定位在某行 (对于程序超过100的人就有福音了)</li>
+<li>Ctrl+M 最大化当前的Edit或View (再按则反之)</li>
+<li>Ctrl+/ 注释当前行,再按则取消注释</li>
+<li>Ctrl+O 快速显示 OutLine</li>
+<li>Ctrl+T 快速显示当前类的继承结构</li>
+<li>Ctrl+W 关闭当前Editer</li>
+<li>Ctrl+K 参照选中的Word快速定位到下一个</li>
+<li>Ctrl+E 快速显示当前Editer的下拉列表(如果当前页面没有显示的用黑体表示)</li>
+<li>Ctrl+/(小键盘) 折叠当前类中的所有代码</li>
+<li>Ctrl+×(小键盘) 展开当前类中的所有代码</li>
+<li>Ctrl+Space 代码助手完成一些代码的插入(但一般和输入法有冲突,可以修改输入法的热键,也可以暂用Alt+/来代替)</li>
+<li>Ctrl+Shift+E 显示管理当前打开的所有的View的管理器(可以选择关闭,激活等操作)</li>
+<li>Ctrl+J 正向增量查找(按下Ctrl+J后,你所输入的每个字母编辑器都提供快速匹配定位到某个单词,如果没有,则在stutes line中显示没有找到了,查一个单词时,特别实用,这个功能Idea两年前就有了)</li>
+<li>Ctrl+Shift+J 反向增量查找(和上条相同,只不过是从后往前查)</li>
+<li>Ctrl+Shift+F4 关闭所有打开的Editer</li>
+<li>Ctrl+Shift+X 把当前选中的文本全部变为小写</li>
+<li>Ctrl+Shift+Y 把当前选中的文本全部变为小写</li>
+<li>Ctrl+Shift+F 格式化当前代码</li>
+<li>Ctrl+Shift+P 定位到对于的匹配符(譬如{}) (从前面定位后面时,光标要在匹配符里面,后面到前面,则反之)</li>
+</ul>
+<h3 id="快捷键B篇"><a href="#快捷键B篇" class="headerlink" title="快捷键B篇  "></a><strong>快捷键B篇  </strong></h3><p><strong>下面的快捷键是重构里面常用的,本人就自己喜欢且常用的整理一下(注:一般重构的快捷键都是Alt+Shift开头的了)</strong></p>
+<h4 id="以Alt-Shift开头"><a href="#以Alt-Shift开头" class="headerlink" title="以Alt+Shift开头 "></a><strong>以Alt+Shift开头 </strong></h4><ul>
+<li>Alt+Shift+R 重命名 (是我自己最爱用的一个了,尤其是变量和类的Rename,比手工方法能节省很多劳动力) </li>
+<li>Alt+Shift+M 抽取方法 (这是重构里面最常用的方法之一了,尤其是对一大堆泥团代码有用)</li>
+<li>Alt+Shift+C 修改函数结构(比较实用,有N个函数调用了这个方法,修改一次搞定)</li>
+<li>Alt+Shift+L 抽取本地变量( 可以直接把一些魔法数字和字符串抽取成一个变量,尤其是多处调用的时候)</li>
+<li>Alt+Shift+F 把Class中的local变量变为field变量 (比较实用的功能)</li>
+<li>Alt+Shift+I 合并变量(可能这样说有点不妥Inline)</li>
+<li>Alt+Shift+V 移动函数和变量(不怎么常用)</li>
+<li>Alt+Shift+Z         重构的后悔药(Undo)</li>
+<li>Alt+左箭头,右箭头    以在编辑窗口切换标签</li>
+<li>Alt+上下箭头         以自动选择鼠标所在行,并将其上下移动</li>
+<li>Ctrl+f6            可以弹出菜单,上面列出可以切换的编辑窗口,这样不用鼠标也可切换</li>
+<li>Ctrl+f7            可以在视图之间切换 ,如编辑视图,输出视图,工程视图</li>
+<li>Ctrl+f8            可以在不同的观察视图中切换,就是在java视图,调试视图,等之间切换。</li>
+<li>Ctrl+m             可以在最大化当前窗口和还原当前窗口之间切换</li>
+<li>Ctrl+e            弹出输入窗口,可以输入你想要编辑的代码窗口,和Ctrl+f6的功能相同,只不过一个是选择的方式,一个是输入的方式,切换窗口。</li>
+<li>Ctrl+T            可以直接显示光标所在内容的类图,可以直接输入,并跳到输入内容部分按住Ctrl键，然后鼠标指向变量名，方法名，类名 在源代码中快速跳转。</li>
+<li>Ctrl + F11        快速执行程序</li>
+<li>Ctrl+Shift+F        程序代码自动排版</li>
+<li>Ctrl+Shift+O        自动加入引用。</li>
+</ul>
+<p><strong>说明</strong>： 假设我们没有Import任何类别时，当我们在程序里打入：</p>
+<p><code>ResourceAttirbute ra =new ResourceAttribute();</code>  </p>
+<p>Eclipse会提示说没有引用类别，这时我们只要按下<strong>Ctrl+Shift+O</strong> ，它就会自动帮我们Import这个类别非常方便。</p>
+<ul>
+<li>Ctrl+/        将选取的块注释起来：在Debug时很方便。</li>
+<li><p>Alt + /         就是大家都应该最常用的代码辅助了</p>
+</li>
+<li><p>Ctrl+h        搜索,打开搜索对话框</p>
+</li>
+<li>Ctrl+Shift+Space        参数提示,如果此时位于方法体中,就会出现方法的参数提示,当前光标所在位置的参数会用粗体显示。</li>
+</ul>
+<h3 id="快捷键C篇"><a href="#快捷键C篇" class="headerlink" title="快捷键C篇  "></a><strong>快捷键C篇  </strong></h3><table>
+<thead>
+<tr>
+<th>作用域</th>
+<th>功能</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>全局</td>
+<td>查找并替换</td>
+<td>Ctrl+F</td>
+</tr>
+<tr>
+<td>文本编辑器</td>
+<td>查找上一个</td>
+<td>Ctrl+Shift+K</td>
+</tr>
+<tr>
+<td>文本编辑器</td>
+<td>查找下一个</td>
+<td>Ctrl+K</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>撤销</td>
+<td>Ctrl+Z</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>复制</td>
+<td>Ctrl+C</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>恢复上一个选择</td>
+<td>Alt+Shift+↓</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>剪切</td>
+<td>Ctrl+X</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>快速修正</td>
+<td>Ctrl1+1</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>内容辅助</td>
+<td>Alt+/</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>全部选中</td>
+<td>Ctrl+A</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>删除</td>
+<td>Delete</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>上下文信息</td>
+<td>Alt+？  Alt+Shift+? Ctrl+Shift+Space</td>
+</tr>
+<tr>
+<td>Java编辑器</td>
+<td>显示工具提示描述</td>
+<td>F2</td>
+</tr>
+<tr>
+<td>Java编辑器</td>
+<td>选择封装元素</td>
+<td>Alt+Shift+↑</td>
+</tr>
+<tr>
+<td>Java编辑器</td>
+<td>选择上一个元素</td>
+<td>Alt+Shift+←</td>
+</tr>
+<tr>
+<td>Java编辑器</td>
+<td>选择下一个元素</td>
+<td>Alt+Shift+→</td>
+</tr>
+<tr>
+<td>文本编辑器</td>
+<td>增量查找 Ctrl+J</td>
+</tr>
+<tr>
+<td>文本编辑器</td>
+<td>增量逆向查找</td>
+<td>Ctrl+Shift+J</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>粘贴</td>
+<td>Ctrl+V</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>重做</td>
+<td>Ctrl+Y</td>
+</tr>
+</tbody>
+</table>
+<p>####<strong>查看</strong>####</p>
+<table>
+<thead>
+<tr>
+<th>作用域</th>
+<th>功能</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>全局</td>
+<td>放大</td>
+<td>Ctrl+=</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>缩小</td>
+<td>Ctrl+-</td>
+</tr>
+</tbody>
+</table>
+<p>####<strong>窗口</strong>####<br>|作用域|功能|快捷键|<br>|——–|———|——-|<br>|全局| 激活编辑器| F12|<br>|全局| 切换编辑器 | Ctrl+Shift+W |<br>|全局 | 上一个编辑器| Ctrl+Shift+F6|<br>|全局| 上一个视图 |Ctrl+Shift+F7|<br>|全局| 上一个透视图 |Ctrl+Shift+F8|<br>|全局|下一个编辑器|Ctrl+F6|<br>|全局|下一个视图|Ctrl+F7|<br>|全局|下一个透视图|Ctrl+F8|<br>|文本编辑器|显示标尺上下文菜单|Ctrl+W|<br>|全局| 显示视图菜单 |Ctrl+F10|<br>|全局| 显示系统菜单| Alt+-|</p>
+<p>####<strong>导航</strong>####</p>
+<table>
+<thead>
+<tr>
+<th>作用域</th>
+<th>功能</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Java编辑器</td>
+<td>打开结构</td>
+<td>Ctrl+F3</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>打开类型</td>
+<td>Ctrl+Shift+T</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>打开类型层次结构</td>
+<td>F4</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>打开声明</td>
+<td>F3</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>打开外部javadoc</td>
+<td>Shift+F2</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>打开资源</td>
+<td>Ctrl+Shift+R</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>后退历史记录</td>
+<td>Alt+←</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>前进历史记录</td>
+<td>Alt+→</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>上一个</td>
+<td>Ctrl+,</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>下一个</td>
+<td>Ctrl+.</td>
+</tr>
+<tr>
+<td>Java编辑器</td>
+<td>显示大纲</td>
+<td>Ctrl+O</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>在层次结构中打开类型</td>
+<td>Ctrl+Shift+H</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>转至匹配的括号</td>
+<td>Ctrl+Shift+P</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>转至上一个编辑位置</td>
+<td>Ctrl+Q</td>
+</tr>
+<tr>
+<td>Java编辑器</td>
+<td>转至上一个成员</td>
+<td>Ctrl+Shift+↑</td>
+</tr>
+<tr>
+<td>Java编辑器</td>
+<td>转至下一个成员</td>
+<td>Ctrl+Shift+↓</td>
+</tr>
+<tr>
+<td>文本编辑器</td>
+<td>转至行</td>
+<td>Ctrl+L</td>
+</tr>
+</tbody>
+</table>
+<p>####<strong>搜索</strong>####</p>
+<table>
+<thead>
+<tr>
+<th>作用域</th>
+<th>功能</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>全局</td>
+<td>出现在文件中</td>
+<td>Ctrl+Shift+U</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>打开搜索对话框</td>
+<td>Ctrl+H</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>工作区中的声明</td>
+<td>Ctrl+G</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>工作区中的引用</td>
+<td>Ctrl+Shift+G</td>
+</tr>
+</tbody>
+</table>
+<h4 id="文本编辑"><a href="#文本编辑" class="headerlink" title="文本编辑"></a><strong>文本编辑</strong></h4><table>
+<thead>
+<tr>
+<th>作用域</th>
+<th>功能</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>文本编辑器</td>
+<td>改写切换</td>
+<td>Insert</td>
+</tr>
+<tr>
+<td>文本编辑器</td>
+<td>上滚行</td>
+<td>Ctrl+↑</td>
+</tr>
+<tr>
+<td>文本编辑器</td>
+<td>下滚行</td>
+<td>Ctrl+↓</td>
+</tr>
+</tbody>
+</table>
+<h4 id="文件"><a href="#文件" class="headerlink" title="文件"></a><strong>文件</strong></h4><table>
+<thead>
+<tr>
+<th>作用域</th>
+<th>功能</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>全局</td>
+<td>保存</td>
+<td>Ctrl+s</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>打印</td>
+<td>Ctrl+P</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>关闭</td>
+<td>Ctrl+F4</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>全部保存</td>
+<td>Ctrl+Shift+S</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>全部关闭</td>
+<td>Ctrl+Shift+F4</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>属性</td>
+<td>Alt+Enter</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>新建</td>
+<td>Ctrl+N</td>
+</tr>
+</tbody>
+</table>
+<h4 id="项目"><a href="#项目" class="headerlink" title="项目"></a><strong>项目</strong></h4><table>
+<thead>
+<tr>
+<th>作用域</th>
+<th>功能</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>全局</td>
+<td>全部构建</td>
+<td>Ctrl+B</td>
+</tr>
+</tbody>
+</table>
+<h4 id="源代码"><a href="#源代码" class="headerlink" title="源代码"></a><strong>源代码</strong></h4><table>
+<thead>
+<tr>
+<th>作用域</th>
+<th>功能</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Java编辑器</td>
+<td>格式化</td>
+<td>Ctrl+Shift+F</td>
+</tr>
+<tr>
+<td>Java编辑器</td>
+<td>取消注释</td>
+<td>Ctrl+\</td>
+</tr>
+<tr>
+<td>Java编辑器</td>
+<td>注释</td>
+<td>Ctrl+/</td>
+</tr>
+<tr>
+<td>Java编辑器</td>
+<td>添加导入</td>
+<td>Ctrl+Shift+M</td>
+</tr>
+<tr>
+<td>Java编辑器</td>
+<td>组织导入</td>
+<td>Ctrl+Shift+O</td>
+</tr>
+<tr>
+<td>Java编辑器</td>
+<td>使用try/catch块来包围 未设置，太常用了，所以在这里列出,建议自己设置。也可以使用Ctrl+1自动修正。</td>
+<td>未设置</td>
+</tr>
+</tbody>
+</table>
+<h4 id="运行"><a href="#运行" class="headerlink" title="运行"></a><strong>运行</strong></h4><table>
+<thead>
+<tr>
+<th>作用域</th>
+<th>功能</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>全局</td>
+<td>单步返回</td>
+<td>F7</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>单步跳过</td>
+<td>F6</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>单步跳入</td>
+<td>F5</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>单步跳入选择</td>
+<td>Ctrl+F5</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>调试上次启动</td>
+<td>F11</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>继续</td>
+<td>F8</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>使用过滤器单步执行</td>
+<td>Shift+F5</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>添加/去除断点</td>
+<td>Ctrl+Shift+B</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>显示</td>
+<td>Ctrl+D</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>运行上次启动</td>
+<td>Ctrl+F11</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>运行至行</td>
+<td>Ctrl+R</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>执行</td>
+<td>Ctrl+U</td>
+</tr>
+</tbody>
+</table>
+<h4 id="重构"><a href="#重构" class="headerlink" title="重构"></a><strong>重构</strong></h4><table>
+<thead>
+<tr>
+<th>作用域</th>
+<th>功能</th>
+<th>快捷键</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>全局</td>
+<td>撤销重构</td>
+<td>Alt+Shift+Z</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>抽取方法</td>
+<td>Alt+Shift+M</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>抽取局部变量</td>
+<td>Alt+Shift+L</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>内联</td>
+<td>Alt+Shift+I</td>
+</tr>
+<tr>
+<td>全局 移动</td>
+<td>Alt+Shift+V</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>重命名</td>
+<td>Alt+Shift+R</td>
+</tr>
+<tr>
+<td>全局</td>
+<td>重做</td>
+<td>Alt+Shift+Y</td>
+</tr>
+</tbody>
+</table>
+<h3 id="自动安插作者、注释日期等的快捷键"><a href="#自动安插作者、注释日期等的快捷键" class="headerlink" title="自动安插作者、注释日期等的快捷键"></a><strong>自动安插作者、注释日期等的快捷键</strong></h3><hr>
+<p><strong>Alt+shift+j</strong></p>
+<h3 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a><strong>结束语</strong></h3><p>如果发现错误，或对部分内容存在质疑欢迎评论或私信本人~</p>
+<font style="float:right;">2016/12/14 2:23:03</font> 
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Myeclipse//" class="article-tag-list-link color5">Myeclipse</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/12/14/Myeclipse总结及自定义黑色主题的配置/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-01" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/02/28/01/">Linux常用命令手册</a>
+    </h1>
+  
+
+        
+        <a href="/2016/02/28/01/" class="archive-article-date">
   	<time datetime="2016-02-28T09:58:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-02-28</time>
 </a>
         
@@ -242,7 +952,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="VIM篇"><a href="#VIM篇" class="headerlink" title="VIM篇"></a>VIM篇</h3><h4 id="命令模式中"><a href="#命令模式中" class="headerlink" title="命令模式中"></a>命令模式中</h4><p><em>o:插入到下一行</em><br><em>yy:复制</em><br><em>p:复制上一行</em><br><em>dd：删除当前行</em><br><em>A:跳到行尾，进入编辑模式</em><br><em>G:插入到行首</em><br><em>u:撤销</em><br><em>shift+a:光标跳到行尾</em><br><em>shift+e:光标跳到行首</em><br><em>shift+z+z:推出编辑模式</em></p>
+        <h3 id="VIM篇"><a href="#VIM篇" class="headerlink" title="VIM篇"></a>VIM篇</h3><p><em>o:插入到下一行</em>  </p>
 
       
 
@@ -270,7 +980,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2016/02/28/new/">展开全文 >></a>
+          <a class="article-more-a" href="/2016/02/28/01/">展开全文 >></a>
         </p>
       
 
