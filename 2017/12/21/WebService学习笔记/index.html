@@ -6,18 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blogs.hoictas.cn">
-  <title>Category: Tomcat | Gitiakon</title>
+  <title>WebService学习笔记 | Gitiakon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这里是 hoictas.cn 一部分">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Gitiakon">
-<meta property="og:url" content="http://blogs.hoictas.cn/categories/Tomcat/index.html">
+  <meta name="description" content="===============前言: 最近在看WebService的视频，觉得视频中的笔记做得很好，便整理了下。 1.1 WebService的作用：  WebService，顾名思义就是基于Web的服务。它使用Web(HTTP)方式，接收和响应外部系统的某种请求。从而实现远程调用。 我们可以调用互联网上查询天气信息Web服务，然后将它嵌入到我们的程序(C/S或B/S 程序)当中来，当用户从我们的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WebService学习笔记">
+<meta property="og:url" content="http://blogs.hoictas.cn/2017/12/21/WebService学习笔记/index.html">
 <meta property="og:site_name" content="Gitiakon">
-<meta property="og:description" content="这里是 hoictas.cn 一部分">
+<meta property="og:description" content="===============前言: 最近在看WebService的视频，觉得视频中的笔记做得很好，便整理了下。 1.1 WebService的作用：  WebService，顾名思义就是基于Web的服务。它使用Web(HTTP)方式，接收和响应外部系统的某种请求。从而实现远程调用。 我们可以调用互联网上查询天气信息Web服务，然后将它嵌入到我们的程序(C/S或B/S 程序)当中来，当用户从我们的">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.imgur.com/ExpkAtu.png">
+<meta property="og:image" content="https://i.imgur.com/5ZBwSdP.png">
+<meta property="og:image" content="https://i.imgur.com/nxEO5zv.jpg">
+<meta property="og:image" content="https://i.imgur.com/OkQw26E.jpg">
+<meta property="og:image" content="https://i.imgur.com/4cKSd3t.jpg">
+<meta property="og:image" content="https://i.imgur.com/u3eAiNe.jpg">
+<meta property="og:updated_time" content="2017-12-20T17:11:35.414Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gitiakon">
-<meta name="twitter:description" content="这里是 hoictas.cn 一部分">
+<meta name="twitter:title" content="WebService学习笔记">
+<meta name="twitter:description" content="===============前言: 最近在看WebService的视频，觉得视频中的笔记做得很好，便整理了下。 1.1 WebService的作用：  WebService，顾名思义就是基于Web的服务。它使用Web(HTTP)方式，接收和响应外部系统的某种请求。从而实现远程调用。 我们可以调用互联网上查询天气信息Web服务，然后将它嵌入到我们的程序(C/S或B/S 程序)当中来，当用户从我们的">
+<meta name="twitter:image" content="https://i.imgur.com/ExpkAtu.png">
   
     <link rel="alternative" href="/atom.xml" title="Gitiakon" type="application/atom+xml">
   
@@ -149,60 +157,393 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-WebService学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2016/12/15/关闭Tomcat报错AbandonedConnectionCleanupThread/" class="archive-article-date">
-  	<time datetime="2016-12-15T11:28:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-15</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2016/12/15/关闭Tomcat报错AbandonedConnectionCleanupThread/">关闭Tomcat报错com.mysql.jdbc.AbandonedConnectionCleanupThread.run</a>
+    <h1 class="article-title" itemprop="name">
+      WebService学习笔记
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2017/12/21/WebService学习笔记/" class="archive-article-date">
+  	<time datetime="2017-12-20T17:07:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id=""><a href="#" class="headerlink" title="==============="></a>===============</h2><p><strong>前言:</strong></p>
+<p>最近在看WebService的视频，觉得视频中的笔记做得很好，便整理了下。</p>
+<h2 id="1-1-WebService的作用："><a href="#1-1-WebService的作用：" class="headerlink" title="1.1 WebService的作用：  "></a>1.1 WebService的作用：  </h2><p><br><br>WebService，顾名思义就是基于Web的服务。它使用Web(HTTP)方式，接收和响应外部系统的某种请求。从而实现远程调用。<br></p>
+<p>我们可以调用互联网上查询天气信息Web服务，然后将它嵌入到我们的程序(C/S或B/S 程序)当中来，当用户从我们的网点看到天气信息时，他会认为我们为他提供了很多的信息服务，但其实我们什么也没有做，只是简单了调用了一下别人服务器上的一段代码而已。<br> </p>
+<p>学习WebSerice可以将你的服务(一段代码)发布到互联网上让别人去调用,也可以调用别人机器上发布的WebService,就像使用自己的代码一样。<br></p>
+<p>WebService可以实现跨平台远程调用，从而实现异构程序之间的通信，特定需求下可以实现远程数据共享、软件重用、分布式程序集成。WebService 即web服务，<strong>它是一种跨编程语言和跨操作系统平台的远程调用技术即跨平台远程调用技术</strong>。<br></p>
+<p>它采用标准<strong>SOAP协议(Simple Object Access Protocol)</strong> ，协议传输WebService数据，是w3c标准。  </p>
+<p>xml和XSD(XML Schema Datatypes)是webservice的基础，是w3c标准，采用wsdl作为描述语言即WebService使用说明书。</p>
+<h3 id="WebService的优缺点："><a href="#WebService的优缺点：" class="headerlink" title="WebService的优缺点："></a>WebService的优缺点：</h3><p><strong>优点：</strong>  </p>
+<ol>
+<li>采用xml支持跨平台远程调用。</li>
+<li>基于http的soap协议，可跨越防火墙。</li>
+<li>支持面向对象开发。</li>
+<li>有利于软件和数据重用，实现松耦合。 </li>
+</ol>
+<p><strong>缺点：</strong>  </p>
+<p>随着soap协议的完善，soap协议增加了许多内容，这样就导致了使用soap协议去完成简单的数据传输的效率不高，对接口要求不严格的情况下直接用http传输自定义数据内容更快捷，例如第三方支付公司的支持接口。   </p>
+<h2 id="1-2：WebService的原理（socket）"><a href="#1-2：WebService的原理（socket）" class="headerlink" title="1.2：WebService的原理（socket）"></a>1.2：WebService的原理（socket）</h2><p><strong>使用socket实现远程调用</strong></p>
+<p><img src="https://i.imgur.com/ExpkAtu.png" alt=""></p>
+<p><strong>客户端和服务端的调用</strong></p>
+<p><img src="https://i.imgur.com/5ZBwSdP.png" alt=""></p>
+<h2 id="1-3：jdk发布WebService服务"><a href="#1-3：jdk发布WebService服务" class="headerlink" title="1.3：jdk发布WebService服务"></a>1.3：jdk发布WebService服务</h2><p><strong>使用JAX-WS开发WebService</strong></p>
+<p><strong>JAX-WS  的全称为 Java API for XML-Based Webservices</strong>，从java5开始支持JAX-WS2.0版本，Jdk1.6.0_13以后的版本支持2.1版本，jdk1.7支持2.2版本，本教程我们使用jdk1.7.0_07开发。   </p>
+<p>那么如何才可以发布一个WebService呢？</p>
+<ol>
+<li>用Jdk1.6.0_13以后的版本发布一个WebService服务，并通过地址栏查看它的wsdl文档。</li>
+<li>通过wsimport生成客户端代码,调用并查看运行的结果.(学会如何调用是重点)。</li>
+<li>从互联网上获取一个WebService网络公开的服务，并使用工具生成客户端，调用并查看结果。</li>
+</ol>
+<h3 id="1-3-1-服务端开发："><a href="#1-3-1-服务端开发：" class="headerlink" title="1.3.1 服务端开发："></a>1.3.1 服务端开发：</h3><p><strong>第1步</strong>  </p>
+<p>编写<strong>SEI(Service Endpoint Interface)</strong>，SEI在WebService中称为port，在java中称为接口，接口类型叫portType。</p>
+<pre><code>package cn.tiakon.webservice.service;
+
+import javax.jws.WebMethod;
+import javax.jws.WebService;
+
+@WebService
+public interface WeatherIntface {
+@WebMethod
+String queryWeather(String cityName);
+}
+</code></pre><p>编写实现类</p>
+<pre><code>package cn.tiakon.webservice.service;
+
+import javax.jws.WebService;
+
+@WebService
+public class WeatherIntfaceImpl implements WeatherIntface {
+
+    @Override
+    public String queryWeather(String cityName) {
+        System.out.println(&quot;form wsimport...&quot; + cityName);
+        return &quot;晴天&quot;;
+    }
+}
+</code></pre><p>并发布：</p>
+<pre><code>package cn.tiakon.webservice.service;
+
+import javax.xml.ws.Endpoint;
+
+public class Service {
+    public static void main(String[] args) {
+        //发布地址、受理对象
+        Endpoint.publish(&quot;http://127.0.0.1:12345/WebService/weather&quot;, new WeatherIntfaceImpl());
+        System.out.println(&quot;发布webservice...&quot;);
+        //wsimport -s . http://127.0.0.1:12345/WebService/weather?wsdl
+        //在wsimport文件夹编译文件
+    }
+}
+</code></pre><p><strong>第2步</strong>  </p>
+<p>通过wsimport生成客户端代码</p>
+<p><img src="https://i.imgur.com/nxEO5zv.jpg" alt=""></p>
+<p><strong>Wsimport介绍</strong></p>
+<p><strong>wsimport</strong>是jdk自带的,可以根据wsdl文档生成客户端调用代码的工具.当然,无论服务器端的WebService是用什么语言写的,都将在客户端生成Java代码，生成的类文件理解成socket调用骨架。服务器端用什么写的并不重要.客户端调用生成的类从而实现发送soap数据。</p>
+<p>wsimport.exe位于JAVA_HOME\bin目录下.</p>
+<pre><code>常用参数为:
+
+-d&lt;目录&gt;  - 将生成.class文件。默认参数。
+-s&lt;目录&gt; - 将生成.java文件。
+-p&lt;生成的新包名&gt; -将生成的类，放于指定的包下。
+(wsdlurl) - http://server:port/service?wsdl，必须的参数。
+</code></pre><p>示例：</p>
+<pre><code>C:/&gt; wsimport –s . http://127.0.0.1:1234/weather?wsdl 
+</code></pre><p><strong>注意</strong>：<em>-s不能分开，-s后面有个小点</em></p>
+<p>也可以使用idea快速生成客户端代码</p>
+<p><img src="https://i.imgur.com/OkQw26E.jpg" alt=""></p>
+<p><img src="https://i.imgur.com/4cKSd3t.jpg" alt=""></p>
+<p><strong>注意:</strong> <em>url选择当前服务发布的地址！</em></p>
+<p><strong>第3步</strong>  </p>
+<p>编写客户端，调用服务方法</p>
+<pre><code>package cn.tiakon.webservice.client;
+
+
+import cn.tiakon.webservice.wsimport.WeatherIntfaceImpl;
+import cn.tiakon.webservice.wsimport.WeatherIntfaceImplService;
+
+public class Client {
+    public static void main(String[] args) {
+        //创建webservice的服务视图
+        WeatherIntfaceImplService weatherIntfaceImplService = new WeatherIntfaceImplService();
+        //通过视图得到端点
+        WeatherIntfaceImpl weatherIntfaceImplPort = weatherIntfaceImplService.getWeatherIntfaceImplPort();
+        //可以通过服务端点调用webservice接口
+        //向服务端发送数据北京
+        String queryWeather = weatherIntfaceImplPort.queryWeather(&quot;北京&quot;);
+        System.out.println(&quot;from service ...&quot; + queryWeather);
+    }
+}
+</code></pre><h3 id="1-3-2-学会看懂使用说明书（wsdl）"><a href="#1-3-2-学会看懂使用说明书（wsdl）" class="headerlink" title="1.3.2 学会看懂使用说明书（wsdl）"></a>1.3.2 学会看懂使用说明书（wsdl）</h3><p><img src="https://i.imgur.com/u3eAiNe.jpg" alt=""></p>
+<pre><code>        &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;!-- Published by JAX-WS RI (http://jax-ws.java.net). RI&apos;s version is JAX-WS RI 2.2.9-b130926.1035 svn-revision#5f6196f2b90e9460065a4c2f4e30e065b245e51e. --&gt;&lt;!-- Generated by JAX-WS RI (http://jax-ws.java.net). RI&apos;s version is JAX-WS RI 2.2.9-b130926.1035 svn-revision#5f6196f2b90e9460065a4c2f4e30e065b245e51e. --&gt;
+&lt;definitions xmlns:wsu=&quot;http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd&quot;
+             xmlns:wsp=&quot;http://www.w3.org/ns/ws-policy&quot; xmlns:wsp1_2=&quot;http://schemas.xmlsoap.org/ws/2004/09/policy&quot;
+             xmlns:wsam=&quot;http://www.w3.org/2007/05/addressing/metadata&quot;
+             xmlns:soap=&quot;http://schemas.xmlsoap.org/wsdl/soap/&quot; xmlns:tns=&quot;http://service.webservice.tiakon.cn/&quot;
+             xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns=&quot;http://schemas.xmlsoap.org/wsdl/&quot;
+             targetNamespace=&quot;http://service.webservice.tiakon.cn/&quot; name=&quot;WeatherIntfaceImplService&quot;&gt;
+    &lt;types&gt;
+        &lt;xsd:schema&gt;
+            &lt;xsd:import namespace=&quot;http://service.webservice.tiakon.cn/&quot;
+                        schemaLocation=&quot;http://127.0.0.1:12345/WebService/weather?xsd=1&quot;&gt;&lt;/xsd:import&gt;
+        &lt;/xsd:schema&gt;
+    &lt;/types&gt;
+    &lt;message name=&quot;queryWeather&quot;&gt;
+        &lt;part name=&quot;parameters&quot; element=&quot;tns:queryWeather&quot;&gt;&lt;/part&gt;
+    &lt;/message&gt;
+    &lt;message name=&quot;queryWeatherResponse&quot;&gt;
+        &lt;part name=&quot;parameters&quot; element=&quot;tns:queryWeatherResponse&quot;&gt;&lt;/part&gt;
+    &lt;/message&gt;
+    &lt;portType name=&quot;WeatherIntfaceImpl&quot;&gt;
+        &lt;operation name=&quot;queryWeather&quot;&gt;
+            &lt;input wsam:Action=&quot;http://service.webservice.tiakon.cn/WeatherIntfaceImpl/queryWeatherRequest&quot;
+                   message=&quot;tns:queryWeather&quot;&gt;&lt;/input&gt;
+            &lt;output wsam:Action=&quot;http://service.webservice.tiakon.cn/WeatherIntfaceImpl/queryWeatherResponse&quot;
+                    message=&quot;tns:queryWeatherResponse&quot;&gt;&lt;/output&gt;
+        &lt;/operation&gt;
+    &lt;/portType&gt;
+    &lt;binding name=&quot;WeatherIntfaceImplPortBinding&quot; type=&quot;tns:WeatherIntfaceImpl&quot;&gt;
+        &lt;soap:binding transport=&quot;http://schemas.xmlsoap.org/soap/http&quot; style=&quot;document&quot;&gt;&lt;/soap:binding&gt;
+        &lt;operation name=&quot;queryWeather&quot;&gt;
+            &lt;soap:operation soapAction=&quot;&quot;&gt;&lt;/soap:operation&gt;
+            &lt;input&gt;
+                &lt;soap:body use=&quot;literal&quot;&gt;&lt;/soap:body&gt;
+            &lt;/input&gt;
+            &lt;output&gt;
+                &lt;soap:body use=&quot;literal&quot;&gt;&lt;/soap:body&gt;
+            &lt;/output&gt;
+        &lt;/operation&gt;
+    &lt;/binding&gt;
+    &lt;service name=&quot;WeatherIntfaceImplService&quot;&gt;
+        &lt;port name=&quot;WeatherIntfaceImplPort&quot; binding=&quot;tns:WeatherIntfaceImplPortBinding&quot;&gt;
+            &lt;soap:address location=&quot;http://127.0.0.1:12345/WebService/weather&quot;&gt;&lt;/soap:address&gt;
+        &lt;/port&gt;
+    &lt;/service&gt;
+&lt;/definitions&gt;
+</code></pre><p>这里从下向上看name的值： </p>
+<ol>
+<li>WeatherIntfaceImplService为视图服务。</li>
+<li>WeatherIntfaceImplPortBinding为调用的端口。</li>
+<li>WeatherIntfaceImpl为接口，接口中提供一个queryWeather()的方法，和一个queryWeatherResponse()方法。</li>
+</ol>
+<p>先介绍这么多别的后面再讲</p>
+<h3 id="1-4-客户端开发："><a href="#1-4-客户端开发：" class="headerlink" title="1.4 客户端开发："></a>1.4 客户端开发：</h3><pre><code>package cn.tiakon.webservice.client;
+
+
+import cn.tiakon.webservice.wsimport.WeatherIntfaceImpl;
+import cn.tiakon.webservice.wsimport.WeatherIntfaceImplService;
+
+public class Client {
+    public static void main(String[] args) {
+        //创建webservice的服务视图
+        WeatherIntfaceImplService weatherIntfaceImplService = new WeatherIntfaceImplService();
+        //通过视图得到端点
+        WeatherIntfaceImpl weatherIntfaceImplPort = weatherIntfaceImplService.getWeatherIntfaceImplPort();
+        //可以通过服务端点调用webservice接口中的方法
+        //向服务端发送数据北京
+        String queryWeather = weatherIntfaceImplPort.queryWeather(&quot;北京&quot;);
+        System.out.println(&quot;from service ...&quot; + queryWeather);
+    }
+}
+</code></pre><p>WeatherIntfaceImplService为service、weatherIntfaceImplPort为端口类型（portType）、queryWeather()为调用的方法。<br>这些参数在wsdl的使用说明书中都会看到。</p>
+<h3 id="1-5-什么是WebService？"><a href="#1-5-什么是WebService？" class="headerlink" title="1.5 什么是WebService？"></a>1.5 什么是WebService？</h3><ol>
+<li>Web service 即web服务，因为互联网而产生，发布web服务后可以将资源进行共享，通过webservice调用获取并操作资源信息。</li>
+<li>webservice是一种跨编程语言和跨操作系统平台的远程调用技术即跨平台远程调用技术。</li>
+<li>采用标准SOAP(Simple Object Access Protocol)  协议传输，soap属w3c标准。</li>
+<li>基于http传输xml，即soap=http+xml</li>
+<li>采用wsdl作为描述语言即webservice使用说明书，wsdl属w3c标准。</li>
+<li>xml和XSD(XML Schema Datatypes)是webservice的跨平台的基础，XML主要的优点在于它既与平台无关，又与厂商无关。XML是由万维网协会(W3C)创建，W3C制定的XSD定义了一套标准的数据类型，数据类型用xml进行描述。</li>
+</ol>
+<h3 id="1-6-WebService三要素"><a href="#1-6-WebService三要素" class="headerlink" title="1.6 WebService三要素"></a>1.6 WebService三要素</h3><p><strong>SOAP</strong></p>
+<p><strong>SOAP即简单对象访问协议(Simple Object Access Protocal)</strong>是一种简单的基于 XML 的协议，它使应用程序通过 HTTP 来交换信息，简单理解为soap=http+xml。<br>Soap协议版本主要使用soap1.1、soap1.2<br>SOAP可以运行在任何其他应用协议上。例如，SMTP、tr069等。</p>
+<p><strong>WSDL</strong></p>
+<p>WSDL 是基于 XML 的用于描述Web Service及其函数、参数和返回值。通俗理解Wsdl是webservice的使用说明书。</p>
+<p><strong>UDDI</strong></p>
+<p>UDDI 是一种目录服务，通过它，企业可注册并搜索 Web services。企业将自己提供的Web Service注册在UDDI，也可以使用别的企业在UDDI注册的web service服务，从而达到资源共享。<br>UDDI旨在将全球的webservcie资源进行共享，促进全球经济合作。<br>但是使用webservice并不是必须使用UDDI，因为很多时候使用者已经知道了 Web service地址并进行调用。</p>
+<h3 id="webService应用场景"><a href="#webService应用场景" class="headerlink" title="webService应用场景"></a>webService应用场景</h3><p><strong>1.应用程序集成</strong></p>
+<p>分布式程序之间进行集成使用webservice直接调用服务层方法，不仅缩短了开发周期，还减少了代码复杂度，并能够增强应用程序的可维护性。</p>
+<p><strong>2.软件重用</strong></p>
+<p>将一个软件的功能以webservice方式暴露出来，达到软件重用。例如上边分析的天气预报，将天气查询功能以webservice接口方式暴露出来非常容易集成在其它系统中；再比如一个第三方物流系统将快递查询、快递登记暴露出来，从而集成在电子商务系统中。</p>
+<p><strong>3.跨防火墙通信</strong></p>
+<p>如果一个大型系统是基于web的且用户分布在世界各地，除了以浏览器访问系统页面外，如果使用其它客户端访问服务器的功能，客户端和服务器通信问题是大的问题，因为客户端和服务器之间通常会有防火墙或者代理服务器，这时如果使用webservice开发功能就可以很容易跨越防火墙，因为webservice和网页程序都是运行在web容器且用相同的端口和协议。</p>
+<h3 id="建议不用webservice"><a href="#建议不用webservice" class="headerlink" title="建议不用webservice"></a>建议不用webservice</h3><p><strong>1.单机程序间通信</strong></p>
+<p>这里说的单机程序是指一个厂家开发的多个应用部署在一台服务器，当程序之间需要通信且无需将接口暴露给第三方系统时完全没有必要使用webservice技术，这时企业自定义一种简单的接口协议即可，简单高效。 </p>
+<p><strong>2.同构程序间通信</strong></p>
+<p>同构程序是指采用相同的编程语言的程序之间通信，比如java远程调用RMi技术就可以非常高效的实现远程调用，使用简单方便，必需保证两边应用都是java编写才可使用。</p>
+<p>总之，只要有其它方法比webservice更高效更可行就不要用webservice，因为web跨平台远程调用方法不止webservice一种，需要择优考虑。</p>
+<h3 id="建议使用webservice"><a href="#建议使用webservice" class="headerlink" title="建议使用webservice"></a>建议使用webservice</h3><p><strong>1.公开接口</strong></p>
+<p>面向互联网公开的接口，例如：某公司产品促销介绍、股票信息查询等，因为webservice是互联网的一个标准协议，将接口发布为webservice，其它公司很容易使用。</p>
+<p><strong>2.调用webservice服务端</strong></p>
+<p>你作为客户端要调用别人的接口，对方接口用的是webservice，这时你也用webservice开发客户端，且协议版本要和服务端保持一致。</p>
+<h3 id="Webservice优缺点"><a href="#Webservice优缺点" class="headerlink" title="Webservice优缺点"></a>Webservice优缺点</h3><p><strong>优点：</strong></p>
+<ol>
+<li>采用xml支持跨平台远程调用。</li>
+<li>基于http的soap协议，可跨越防火墙。</li>
+<li>支持面向对象开发。</li>
+<li>有利于软件和数据重用，实现松耦合。</li>
+</ol>
+<p><strong>缺点：</strong></p>
+<ol>
+<li>由于soap是基于xml传输，本身使用xml传输会传输一些无关的东西从而效率不高，随着soap协议的完善，soap协议增加了许多内容，这样就导致了使用soap协议去完成简单的数据传输的效率更加不高。</li>
+<li>webservice作为web跨平台访问的标准技术，很多公司都限定要求使用webservice，其实对于简单的接口如果直接用http传输自定义数据内容比webservice开发更快捷，例如第三方支付公司的支持接口。</li>
+</ol>
+<h3 id="现状前景"><a href="#现状前景" class="headerlink" title="现状前景"></a>现状前景</h3><p>就目前来看Webservice主要是作为一种远程调用技术而存在，而远程调用的技术非常多，比webservice简单方便的也有，比如http。但是随是SOA的兴起，面向服务构建应用的模式被推崇，随着webservice标准的规范，相信Web服务将是未来应用架构的一个极为重要的模式，随着Web服务的深入人心,会有越来越多的应用采用Web服务架构开发，Web服务的需求将不断增加。</p>
+<p>像一些互联网开发商yahoo、eBay及亚马逊等,都提供了自己的Web服务,大大推动了企业B2B的进程。将来会有更多企业开放自己的Web服务,从中获得更多的效益，这一切都由web服务所带来的，当然web服务正在发展肯定还有更精彩的前景等待人们去开发。</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/Tomcat//" class="article-tag-list-link color2">Tomcat</a>
+        			<a href="/categories/WebService//" class="article-tag-list-link color1">WebService</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/WebService/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blogs.hoictas.cn/2017/12/21/WebService学习笔记/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2017/12/19/01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World!</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -225,10 +566,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
