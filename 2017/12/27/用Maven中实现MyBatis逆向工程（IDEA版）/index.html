@@ -8,16 +8,22 @@
   <link rel="dns-prefetch" href="http://blogs.hoictas.cn">
   <title>Gitiakon</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这里是 hoictas.com 一部分">
-<meta property="og:type" content="website">
+  <meta name="description" content="title: 用Maven中实现MyBatis逆向工程（IDEA版）date: 2017-11-30  19:41:19 categories: [Maven,MyBatis] MyBatis逆向工程是指用数据库的表直接生成Java代码，利用MyBatis官方提供的逆向工程，可以针对单表自动生MyBatis执行所需要的代码（如pojo，mapper接口和mapper.xml）。">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Gitiakon">
-<meta property="og:url" content="http://blogs.hoictas.cn/index.html">
+<meta property="og:url" content="http://blogs.hoictas.cn/2017/12/27/用Maven中实现MyBatis逆向工程（IDEA版）/index.html">
 <meta property="og:site_name" content="Gitiakon">
-<meta property="og:description" content="这里是 hoictas.com 一部分">
+<meta property="og:description" content="title: 用Maven中实现MyBatis逆向工程（IDEA版）date: 2017-11-30  19:41:19 categories: [Maven,MyBatis] MyBatis逆向工程是指用数据库的表直接生成Java代码，利用MyBatis官方提供的逆向工程，可以针对单表自动生MyBatis执行所需要的代码（如pojo，mapper接口和mapper.xml）。">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://i.imgur.com/hW1n09r.jpg">
+<meta property="og:image" content="https://i.imgur.com/7jWm3uQ.jpg">
+<meta property="og:image" content="https://i.imgur.com/DlK6e1i.jpg">
+<meta property="og:image" content="https://i.imgur.com/1V0WsXD.jpg">
+<meta property="og:updated_time" content="2017-12-26T20:30:35.788Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gitiakon">
-<meta name="twitter:description" content="这里是 hoictas.com 一部分">
+<meta name="twitter:description" content="title: 用Maven中实现MyBatis逆向工程（IDEA版）date: 2017-11-30  19:41:19 categories: [Maven,MyBatis] MyBatis逆向工程是指用数据库的表直接生成Java代码，利用MyBatis官方提供的逆向工程，可以针对单表自动生MyBatis执行所需要的代码（如pojo，mapper接口和mapper.xml）。">
+<meta name="twitter:image" content="https://i.imgur.com/hW1n09r.jpg">
   
     <link rel="alternative" href="/atom.xml" title="Gitiakon" type="application/atom+xml">
   
@@ -149,9 +155,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-
-<article id="post-用Maven中实现MyBatis逆向工程（IDEA版）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-用Maven中实现MyBatis逆向工程（IDEA版）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
@@ -160,11 +164,100 @@
 <p>title: 用Maven中实现MyBatis逆向工程（IDEA版）<br>date: 2017-11-30  19:41:19</p>
 <h2 id="categories-Maven-MyBatis"><a href="#categories-Maven-MyBatis" class="headerlink" title="categories: [Maven,MyBatis]"></a>categories: [Maven,MyBatis]</h2><hr>
 <p>MyBatis逆向工程是指用数据库的表直接生成Java代码，利用MyBatis官方提供的逆向工程，可以针对单表自动生MyBatis执行所需要的代码（如pojo，mapper接口和mapper.xml）。</p>
-        
-          <a class="article-more-a" href="/2017/12/27/用Maven中实现MyBatis逆向工程（IDEA版）/#more">more >></a>
-        
+<a id="more"></a>
+<h4 id="首先"><a href="#首先" class="headerlink" title="首先"></a>首先</h4><p>使用idea中的Maven生成MyBatis所需要的mapper类和xml文件，非常方便。</p>
+<p>首先在IDEA中要有MyBatis的这款插件，它为idea提供mybatis的xml的模版文件、接口类与xml文件对应导航。</p>
+<p><img src="https://i.imgur.com/hW1n09r.jpg" alt=""></p>
+<p>安装成功后，在maven的resources文件右击使用mybatis-generator-config模版文件，</p>
+<p><img src="https://i.imgur.com/7jWm3uQ.jpg" alt=""></p>
+<p><strong>内容如下：</strong></p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;
+&lt;!DOCTYPE generatorConfiguration PUBLIC
+        &quot;-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN&quot;
+        &quot;http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd&quot; &gt;
+&lt;generatorConfiguration&gt;
+
+    &lt;!--数据库驱动jar包的真实路径 --&gt;
+    &lt;classPathEntry
+            location=&quot;C:\Users\Hoictas\.m2\repository\mysql\mysql-connector-java\5.1.32\mysql-connector-java-5.1.32.jar&quot;/&gt;
+
+    &lt;context id=&quot;context&quot; targetRuntime=&quot;MyBatis3&quot;&gt;
+        &lt;!-- 是否去除自动生成的注释 true：是 ： false:否 --&gt;
+        &lt;commentGenerator&gt;
+            &lt;property name=&quot;suppressAllComments&quot; value=&quot;false&quot;/&gt;
+            &lt;property name=&quot;suppressDate&quot; value=&quot;true&quot;/&gt;
+        &lt;/commentGenerator&gt;
+
+        &lt;!--数据库连接的信息：驱动类、连接地址、用户名、密码 --&gt;
+        &lt;jdbcConnection driverClass=&quot;com.mysql.jdbc.Driver&quot;
+                        connectionURL=&quot;jdbc:mysql://localhost:3306/db_wechat&quot;
+                        userId=&quot;tk&quot;
+                        password=&quot;tk&quot;/&gt;
+        &lt;!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
+            NUMERIC 类型解析为java.math.BigDecimal --&gt;
+        &lt;javaTypeResolver&gt;
+            &lt;property name=&quot;forceBigDecimals&quot; value=&quot;false&quot;/&gt;
+        &lt;/javaTypeResolver&gt;
+
+        &lt;!--指定包名生成实体类 以及生成的地址 （可以自定义地址，如果路径不存在会自动创建） --&gt;
+        &lt;javaModelGenerator targetPackage=&quot;com.mybatis.demo.entity&quot; targetProject=&quot;.\src\main\java&quot;&gt;
+            &lt;!-- enableSubPackages:是否让schema作为包的后缀 --&gt;
+            &lt;property name=&quot;enableSubPackages&quot; value=&quot;false&quot;/&gt;
+            &lt;!-- 从数据库返回的值被清理前后的空格 --&gt;
+            &lt;property name=&quot;trimStrings&quot; value=&quot;true&quot;/&gt;
+        &lt;/javaModelGenerator&gt;
+
+        &lt;!-- !!!! Mapper XML Configurations !!!! --&gt;
+        &lt;sqlMapGenerator targetPackage=&quot;com.mybatis.demo.mapper.impl&quot; targetProject=&quot;.\src\main\java&quot;&gt;
+            &lt;property name=&quot;enableSubPackages&quot; value=&quot;false&quot;/&gt;
+        &lt;/sqlMapGenerator&gt;
+
+        &lt;!-- !!!! Mapper Interface Configurations !!!! --&gt;
+        &lt;javaClientGenerator targetPackage=&quot;com.mybatis.demo.mapper&quot; targetProject=&quot;.\src\main\java&quot;
+                             type=&quot;XMLMAPPER&quot;&gt;
+            &lt;property name=&quot;enableSubPackages&quot; value=&quot;false&quot;/&gt;
+        &lt;/javaClientGenerator&gt;
+
+        &lt;!-- 指定数据库表 --&gt;
+        &lt;table schema=&quot;db_wechat&quot; tableName=&quot;t_commandcontent&quot;
+               enableCountByExample=&quot;false&quot; enableDeleteByExample=&quot;false&quot;
+               enableSelectByExample=&quot;false&quot; enableUpdateByExample=&quot;false&quot;/&gt;
+        &lt;table schema=&quot;db_wechat&quot; tableName=&quot;t_automessage&quot;
+               enableCountByExample=&quot;false&quot; enableDeleteByExample=&quot;false&quot;
+               enableSelectByExample=&quot;false&quot; enableUpdateByExample=&quot;false&quot;/&gt;
+        &lt;table schema=&quot;db_wechat&quot; tableName=&quot;t_command&quot;
+               enableCountByExample=&quot;false&quot; enableDeleteByExample=&quot;false&quot;
+               enableSelectByExample=&quot;false&quot; enableUpdateByExample=&quot;false&quot;/&gt;
+    &lt;/context&gt;
+&lt;/generatorConfiguration&gt;
+</code></pre><p>配置简单，没什么难度，再把我的项目结构比对上面的代码，你就知道该怎么根据自己的项目来配置文件。</p>
+<p><img src="https://i.imgur.com/DlK6e1i.jpg" alt=""></p>
+<p>最后点击右侧的maven project 找到mybatis-generator运行即可。</p>
+<p><img src="https://i.imgur.com/1V0WsXD.jpg" alt=""></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -173,767 +266,113 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/27/用Maven中实现MyBatis逆向工程（IDEA版）/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://blogs.hoictas.cn/2017/12/27/用Maven中实现MyBatis逆向工程（IDEA版）/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-<article id="post-WebService学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/12/21/WebService学习笔记/">WebService学习笔记</a>
-    </h1>
+<nav id="article-nav">
   
-
-        
-        <a href="/2017/12/21/WebService学习笔记/" class="archive-article-date">
-  	<time datetime="2017-12-20T17:07:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p><strong>前言:</strong></p>
-<p>最近在看WebService的视频，觉得视频中的笔记做得很好，便整理了下。</p>
-        
-          <a class="article-more-a" href="/2017/12/21/WebService学习笔记/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/WebService//" class="article-tag-list-link color1">WebService</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/WebService/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/12/21/WebService学习笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-<article id="post-只要有合理的质疑即是无罪" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/15/只要有合理的质疑即是无罪/">只要有合理的质疑即是无罪-------《12怒汉》观后感（1957版）</a>
-    </h1>
+    <a href="/2017/12/21/WebService学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">WebService学习笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
-
-        
-        <a href="/2017/11/15/只要有合理的质疑即是无罪/" class="archive-article-date">
-  	<time datetime="2017-11-15T06:22:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-11-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p><img src="https://i.imgur.com/H81Qg4d.jpg" alt=""></p>
-        
-          <a class="article-more-a" href="/2017/11/15/只要有合理的质疑即是无罪/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/11/15/只要有合理的质疑即是无罪/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-<article id="post-怎么解决eclipse的项目导入idea后注释乱码的问题" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/26/怎么解决eclipse的项目导入idea后注释乱码的问题/">怎么解决eclipse的项目导入idea后注释乱码的问题</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/26/怎么解决eclipse的项目导入idea后注释乱码的问题/" class="archive-article-date">
-  	<time datetime="2017-10-26T14:53:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>多图预警，土豪请便~</p>
-        
-          <a class="article-more-a" href="/2017/10/26/怎么解决eclipse的项目导入idea后注释乱码的问题/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/eclipse//" class="article-tag-list-link color3">eclipse</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/eclipse/idea//" class="article-tag-list-link color5">idea</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/eclipse/idea/乱码//" class="article-tag-list-link color3">乱码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/26/怎么解决eclipse的项目导入idea后注释乱码的问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-<article id="post-Tomcat执行一段时间报错ErrorParsingHTTPRequesTheader" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/19/Tomcat执行一段时间报错ErrorParsingHTTPRequesTheader/">Tomcat执行一段时间后，报错Error parsing HTTP request header</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/19/Tomcat执行一段时间报错ErrorParsingHTTPRequesTheader/" class="archive-article-date">
-  	<time datetime="2017-10-19T04:02:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<pre><code>[2017-10-19 10:00:23,499] Artifact MybatisNotes:war exploded: Deploy took 2,492 milliseconds
-19-Oct-2017 22:00:29.626 信息 [http-nio-8888-exec-8] org.apache.coyote.http11.Http11Processor.service Error parsing HTTP request header
- Note: further occurrences of HTTP header parsing errors will be logged at DEBUG level.
- java.lang.IllegalArgumentException: Invalid character found in method name. HTTP method names must be tokens
-    at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:422)
-</code></pre>
-        
-          <a class="article-more-a" href="/2017/10/19/Tomcat执行一段时间报错ErrorParsingHTTPRequesTheader/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Tomcat//" class="article-tag-list-link color2">Tomcat</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/19/Tomcat执行一段时间报错ErrorParsingHTTPRequesTheader/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-<article id="post-java多线程之内存可见性" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/10/18/java多线程之内存可见性/">Java多线程之内存可见性</a>
-    </h1>
-  
-
-        
-        <a href="/2017/10/18/java多线程之内存可见性/" class="archive-article-date">
-  	<time datetime="2017-10-18T12:49:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-10-18</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p><strong>前言:</strong></p>
-<p>在学习多线程时就会经常遇到数据争用问题，而想要弄明白为什么会发生数据争用问题，就不得不提可见性的概念。</p>
-<p>什么是可见性？</p>
-        
-          <a class="article-more-a" href="/2017/10/18/java多线程之内存可见性/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Java多线程//" class="article-tag-list-link color3">Java多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/10/18/java多线程之内存可见性/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-<article id="post-Maven学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/22/Maven学习笔记/">Maven学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/22/Maven学习笔记/" class="archive-article-date">
-  	<time datetime="2017-09-22T02:18:47.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<h2 id="一-介绍"><a href="#一-介绍" class="headerlink" title="一.介绍"></a>一.介绍</h2><p><br><br><strong>Maven</strong>是基于项目对象模型（POM），可以通过一小段描述信息来管理项目的构建、报告和文档的软件项目管理工具。<br><br><br><strong>Mevan的作用</strong>：解决了使用多框架开发时，导入各个框架所需的不同jar包的冲突并管理。快速且高效，省事省精力！</p>
-        
-          <a class="article-more-a" href="/2017/09/22/Maven学习笔记/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Maven//" class="article-tag-list-link color1">Maven</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/22/Maven学习笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-<article id="post-推荐一款简单炫酷的单多选框checked" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/09/02/推荐一款简单炫酷的单多选框checked/">推荐一款简单炫酷的单/多选框checked.css</a>
-    </h1>
-  
-
-        
-        <a href="/2017/09/02/推荐一款简单炫酷的单多选框checked/" class="archive-article-date">
-  	<time datetime="2017-09-02T15:54:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p><a href="http://www.jq22.com/yanshi11224" title="演示地址" target="_blank" rel="noopener">演示地址</a><br><br><a href="https://github.com/720kb/checked.css" title="github地址" target="_blank" rel="noopener">github地址</a></p>
-<pre><code>插件描述：checked.css是一款能够制作复选框和单选按钮点击动画的CSS3动画库。
-它内置23种动画特效，在用户点击单选按钮或复选框时会出现相应的动画效果。
-</code></pre>
-        
-          <a class="article-more-a" href="/2017/09/02/推荐一款简单炫酷的单多选框checked/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/CSS//" class="article-tag-list-link color4">CSS</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/09/02/推荐一款简单炫酷的单多选框checked/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-<article id="post-svn执行上下文错误由于目标计算机积极拒绝无法连接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/07/05/svn执行上下文错误由于目标计算机积极拒绝无法连接/">svn执行上下文错误:由于目标计算机积极拒绝，无法连接</a>
-    </h1>
-  
-
-        
-        <a href="/2017/07/05/svn执行上下文错误由于目标计算机积极拒绝无法连接/" class="archive-article-date">
-  	<time datetime="2017-07-05T11:44:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-07-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p>今天在学习SVN，通过svn连接本地服务器时遇见如下报错：</p>
-<p><img src="http://i.imgur.com/0KhJBY7.jpg" alt=""></p>
-        
-          <a class="article-more-a" href="/2017/07/05/svn执行上下文错误由于目标计算机积极拒绝无法连接/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/SVN//" class="article-tag-list-link color4">SVN</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/07/05/svn执行上下文错误由于目标计算机积极拒绝无法连接/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-<article id="post-手把手教你如何克隆github上的项目到本地git中" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/06/28/手把手教你如何克隆github上的项目到本地git中/">手把手教你如何克隆github上的项目到本地git中!</a>
-    </h1>
-  
-
-        
-        <a href="/2017/06/28/手把手教你如何克隆github上的项目到本地git中/" class="archive-article-date">
-  	<time datetime="2017-06-28T05:36:33.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <hr>
-<p><strong>前言:</strong></p>
-<p>本篇教程适合刚学github的童靴学习阅读，老鸟自觉绕过。<br></p>
-<p>使用git来操作github上的项目，如果出现<strong><code>Permission denied (publickey).</code></strong>显示错误。<br><br>那就是用户名、邮箱设置不正确或根据邮箱生成的公钥不正确。重新配置一下就好。<br></p>
-<p>根据如下教程可以基本避免绝大多数使用ssh连接github的错误，楼主亲测有效。</p>
-        
-          <a class="article-more-a" href="/2017/06/28/手把手教你如何克隆github上的项目到本地git中/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/github//" class="article-tag-list-link color2">github</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/github/学习笔记//" class="article-tag-list-link color5">学习笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/06/28/手把手教你如何克隆github上的项目到本地git中/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-
-
-<nav id="page-nav">
-  <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
 </nav>
 
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
+  
+
+  
+  <div id="SOHUCS" sid="用Maven中实现MyBatis逆向工程（IDEA版）" ></div> 
+<script charset="utf-8" type="text/javascript" src="//changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+    window.changyan.api.config({
+        appid: "cytnk7BJ4",
+        conf: "a45c5613a6857b62bcdccb95567238ac"
+    });
+</script>
+</script>
+  
+
+  
+
+  
 
 
           </div>
@@ -955,8 +394,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
