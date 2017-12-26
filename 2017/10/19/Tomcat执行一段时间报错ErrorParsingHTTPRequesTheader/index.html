@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://i.imgur.com/HVTFIv2.jpg">
 <meta property="og:image" content="https://i.imgur.com/XlxgDFt.jpg">
-<meta property="og:updated_time" content="2017-12-20T17:59:33.494Z">
+<meta property="og:updated_time" content="2017-12-26T20:13:41.239Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tomcat执行一段时间后，报错Error parsing HTTP request header">
 <meta name="twitter:description" content="[2017-10-19 10:00:23,499] Artifact MybatisNotes:war exploded: Deploy took 2,492 milliseconds 19-Oct-2017 22:00:29.626 信息 [http-nio-8888-exec-8] org.apache.coyote.http11.Http11Processor.service Error">
@@ -174,13 +174,13 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p><img src="https://i.imgur.com/HVTFIv2.jpg" alt=""></p>
 <pre><code>[2017-10-19 10:00:23,499] Artifact MybatisNotes:war exploded: Deploy took 2,492 milliseconds
 19-Oct-2017 22:00:29.626 信息 [http-nio-8888-exec-8] org.apache.coyote.http11.Http11Processor.service Error parsing HTTP request header
  Note: further occurrences of HTTP header parsing errors will be logged at DEBUG level.
  java.lang.IllegalArgumentException: Invalid character found in method name. HTTP method names must be tokens
     at org.apache.coyote.http11.Http11InputBuffer.parseRequestLine(Http11InputBuffer.java:422)
 </code></pre><a id="more"></a>
+<p><img src="https://i.imgur.com/HVTFIv2.jpg" alt=""></p>
 <p>不知道为什么Tomcat使用一段时间后，再次启动就会出现如上异常，在网上找了半天，有说是缓存设置的太小了，也有说可能是项目里的jar发生冲突引起的。两种我都试了，第一种设置后没作用。第二种我把Tomcat卸载干净后重新安装还是会报错。</p>
 <p>不知道什么原因，又看了很多回答有的说是跟http和端口有关。于是我又换了一个端口号，再是就不报错了。</p>
 <p><img src="https://i.imgur.com/XlxgDFt.jpg" alt=""></p>
@@ -290,11 +290,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2017/11/15/只要有合理的质疑即是无罪/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2017/10/26/怎么解决eclipse的项目导入idea后注释乱码的问题/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          只要有合理的质疑即是无罪-------《12怒汉》观后感（1957版）
+          怎么解决eclipse的项目导入idea后注释乱码的问题
         
       </div>
     </a>
